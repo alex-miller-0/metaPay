@@ -118,13 +118,13 @@ class MetaPayComponent extends Component {
 
   render(){
     let { pay } = this.props;
-    // if (web3 && pay.web3_provider == 1) {
-    //   return this.renderMetamaskCheckout();
-    // } else if (web3) {
-    //   return this.renderCheckout(true);
-    // } else {
+    if (web3 && pay.web3_provider == 1) {
+      return this.renderMetamaskCheckout();
+    } else if (web3) {
+      return this.renderCheckout(true);
+    } else {
       return this.renderCheckout();
-    // }
+    }
   }
 
 }
