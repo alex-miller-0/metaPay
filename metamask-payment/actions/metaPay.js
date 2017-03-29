@@ -37,6 +37,13 @@ export default class metaPay {
     }
   }
 
+  saveAddress(data) {
+    return (dispatch) => {
+      console.log('Saving address:', data);
+      // Save the address
+    }
+  }
+
 
   sendTxn(web3, ether, nonce) {
     return (dispatch) => {
@@ -53,8 +60,9 @@ export default class metaPay {
         value: `0x${wei.toString(16)}`
       };
       console.log('raw txn', rawTx)
-      web3.eth.sendTransaction(rawTx, (err, result) => {
+      web3.eth.sendTransaction(rawTx, (err, txHash) => {
         if (err) { console.log('Error sending txn:', err); }
+        // Save the transaction hash
       })
     }
   }

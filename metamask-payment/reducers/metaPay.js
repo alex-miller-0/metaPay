@@ -3,7 +3,11 @@ const INITIAL_STATE = {
   usd_amt: 0,
   eth_price: 0,
   nonce: 0,
-  web3_provider: null
+  web3_provider: null,
+  name: '',
+  address: '',
+  city: '',
+  country: ''
 }
 
 export default function metaPay(state = INITIAL_STATE, action) {
@@ -37,6 +41,31 @@ export default function metaPay(state = INITIAL_STATE, action) {
         ...state,
         web3_provider: action.result
       }
+      break;
+    case 'UPDATE_NAME':
+      return {
+        ...state,
+        name: action.result
+      };
+      break;
+    case 'UPDATE_ADDRESS':
+      return {
+        ...state,
+        address: action.result
+      };
+      break;
+    case 'UPDATE_CITY':
+      return {
+        ...state,
+        city: action.result
+      };
+      break;
+    case 'UPDATE_COUNTRY':
+      return {
+        ...state,
+        country: action.result
+      };
+      break;
     default:
       return state;
   }
